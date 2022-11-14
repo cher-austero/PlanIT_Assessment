@@ -1,0 +1,2534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.11.0 on win32)" generated="20221114 19:36:41.119" rpa="false" schemaversion="3">
+<suite id="s1" name="TestCases" source="C:\Users\asus-pc\Documents\Cher\Projects\PlanIT_Assessment\TestCases">
+<suite id="s1-s1" name="TC1" source="C:\Users\asus-pc\Documents\Cher\Projects\PlanIT_Assessment\TestCases\TC1.robot">
+<test id="s1-s1-t1" name="TC1" line="12">
+<kw name="Go to Jupitor Toys" library="General" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://jupiter.cloud.planittesting.com</arg>
+<arg>browser=gc</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221114 19:36:42.261" level="INFO">Opening browser 'gc' to base url 'https://jupiter.cloud.planittesting.com'.</msg>
+<status status="PASS" starttime="20221114 19:36:42.259" endtime="20221114 19:36:52.740"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221114 19:36:52.749" endtime="20221114 19:36:52.908"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:42.258" endtime="20221114 19:36:52.908"/>
+</kw>
+<kw name="Verify Landing Page is Displayed" library="HomePage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Logo}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:36:52.910" endtime="20221114 19:36:52.981"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:52.909" endtime="20221114 19:36:52.982"/>
+</kw>
+<kw name="Go to Contacts" library="HomePage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Contact_Menu}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:36:52.984" endtime="20221114 19:36:53.058"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Contact_Menu}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:36:53.060" level="INFO">Clicking element 'css:a[href="#/contact"]'.</msg>
+<status status="PASS" starttime="20221114 19:36:53.059" endtime="20221114 19:36:53.183"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:52.982" endtime="20221114 19:36:53.184"/>
+</kw>
+<kw name="Submit Contact" library="ContactPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Submit_Btn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:36:53.184" endtime="20221114 19:36:53.467"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Submit_Btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:36:53.468" level="INFO">Clicking element '//a[.="Submit"]'.</msg>
+<status status="PASS" starttime="20221114 19:36:53.467" endtime="20221114 19:36:53.562"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:53.184" endtime="20221114 19:36:53.562"/>
+</kw>
+<kw name="Verify Alert Error Message is Displayed" library="ContactPage">
+<arg>bExpected=${True}</arg>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${IsVisible}</var>
+<arg>element should be visible</arg>
+<arg>${Alert_Err_Msg}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${Alert_Err_Msg}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221114 19:36:53.606" level="INFO">Element '//div[@class="alert alert-error ng-scope"]' is displayed.</msg>
+<status status="PASS" starttime="20221114 19:36:53.565" endtime="20221114 19:36:53.606"/>
+</kw>
+<msg timestamp="20221114 19:36:53.607" level="INFO">${IsVisible} = True</msg>
+<status status="PASS" starttime="20221114 19:36:53.564" endtime="20221114 19:36:53.607"/>
+</kw>
+<if>
+<branch type="IF" condition="${bExpected} and ${IsVisible}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'We welcome your feedback - but we won't get it unless you complete the form correctly.' is displayed.</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221114 19:36:53.610" level="INFO">Correct! Expected Error: 'We welcome your feedback - but we won't get it unless you complete the form correctly.' is displayed.</msg>
+<status status="PASS" starttime="20221114 19:36:53.609" endtime="20221114 19:36:53.610"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:53.608" endtime="20221114 19:36:53.610"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected} and ${IsVisible}==${False}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Incorrect! Expected Error: 'We welcome your feedback - but we won't get it unless you complete the form correctly.' is not displayed.</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.611" endtime="20221114 19:36:53.611"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.611" endtime="20221114 19:36:53.611"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${True}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Incorrect! Expected Error: 'We welcome your feedback - but we won't get it unless you complete the form correctly.' is displayed.</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.612" endtime="20221114 19:36:53.612"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.611" endtime="20221114 19:36:53.612"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${False}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'We welcome your feedback - but we won't get it unless you complete the form correctly.' is not displayed.</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.612" endtime="20221114 19:36:53.612"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.612" endtime="20221114 19:36:53.612"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" library="BuiltIn">
+<arg>Please check!</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.613" endtime="20221114 19:36:53.613"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.612" endtime="20221114 19:36:53.613"/>
+</branch>
+<status status="PASS" starttime="20221114 19:36:53.607" endtime="20221114 19:36:53.613"/>
+</if>
+<status status="PASS" starttime="20221114 19:36:53.563" endtime="20221114 19:36:53.613"/>
+</kw>
+<kw name="Verify Forename Error Message is Displayed" library="ContactPage">
+<arg>bExpected=${True}</arg>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${IsVisible}</var>
+<arg>element should be visible</arg>
+<arg>${Forename_Err_Msg}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${Forename_Err_Msg}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221114 19:36:53.650" level="INFO">Element 'css:span#forename-err' is displayed.</msg>
+<status status="PASS" starttime="20221114 19:36:53.614" endtime="20221114 19:36:53.650"/>
+</kw>
+<msg timestamp="20221114 19:36:53.651" level="INFO">${IsVisible} = True</msg>
+<status status="PASS" starttime="20221114 19:36:53.614" endtime="20221114 19:36:53.651"/>
+</kw>
+<if>
+<branch type="IF" condition="${bExpected} and ${IsVisible}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'Forename is required' is displayed'</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221114 19:36:53.652" level="INFO">Correct! Expected Error: 'Forename is required' is displayed'</msg>
+<status status="PASS" starttime="20221114 19:36:53.651" endtime="20221114 19:36:53.652"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:53.651" endtime="20221114 19:36:53.652"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected} and ${IsVisible}==${False}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Incorrect! Expected Error: 'Forename is required' is not displayed.</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.652" endtime="20221114 19:36:53.653"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.652" endtime="20221114 19:36:53.653"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${True}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Incorrect! Expected Error: 'Forename is required' is displayed'</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.653" endtime="20221114 19:36:53.653"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.653" endtime="20221114 19:36:53.653"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${False}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'Forename is required' is not displayed'</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.653" endtime="20221114 19:36:53.653"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.653" endtime="20221114 19:36:53.653"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" library="BuiltIn">
+<arg>Please check!</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.654" endtime="20221114 19:36:53.654"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.653" endtime="20221114 19:36:53.654"/>
+</branch>
+<status status="PASS" starttime="20221114 19:36:53.651" endtime="20221114 19:36:53.654"/>
+</if>
+<status status="PASS" starttime="20221114 19:36:53.613" endtime="20221114 19:36:53.654"/>
+</kw>
+<kw name="Verify Email Error Message is Displayed" library="ContactPage">
+<arg>bExpected=${True}</arg>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${IsVisible}</var>
+<arg>element should be visible</arg>
+<arg>${Email_Err_Msg}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${Email_Err_Msg}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221114 19:36:53.702" level="INFO">Element 'css:span#email-err' is displayed.</msg>
+<status status="PASS" starttime="20221114 19:36:53.655" endtime="20221114 19:36:53.702"/>
+</kw>
+<msg timestamp="20221114 19:36:53.702" level="INFO">${IsVisible} = True</msg>
+<status status="PASS" starttime="20221114 19:36:53.655" endtime="20221114 19:36:53.702"/>
+</kw>
+<if>
+<branch type="IF" condition="${bExpected} and ${IsVisible}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'Email is required' is displayed.</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221114 19:36:53.703" level="INFO">Correct! Expected Error: 'Email is required' is displayed.</msg>
+<status status="PASS" starttime="20221114 19:36:53.703" endtime="20221114 19:36:53.703"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:53.703" endtime="20221114 19:36:53.703"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected} and ${IsVisible}==${False}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Incorrect! Expected Error: 'Email is required' is not displayed.</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.704" endtime="20221114 19:36:53.704"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.703" endtime="20221114 19:36:53.704"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${True}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Incorrect! Expected Error: 'Email is required' is displayed.</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.704" endtime="20221114 19:36:53.704"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.704" endtime="20221114 19:36:53.704"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${False}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'Email is required' is not displayed.</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.704" endtime="20221114 19:36:53.704"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.704" endtime="20221114 19:36:53.704"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" library="BuiltIn">
+<arg>Please check!</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.704" endtime="20221114 19:36:53.704"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.704" endtime="20221114 19:36:53.704"/>
+</branch>
+<status status="PASS" starttime="20221114 19:36:53.702" endtime="20221114 19:36:53.704"/>
+</if>
+<status status="PASS" starttime="20221114 19:36:53.654" endtime="20221114 19:36:53.705"/>
+</kw>
+<kw name="Verify Message Error Message is Displayed" library="ContactPage">
+<arg>bExpected=${True}</arg>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${IsVisible}</var>
+<arg>element should be visible</arg>
+<arg>${Message_Err_Msg}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${Message_Err_Msg}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221114 19:36:53.744" level="INFO">Element 'css:span#message-err' is displayed.</msg>
+<status status="PASS" starttime="20221114 19:36:53.707" endtime="20221114 19:36:53.744"/>
+</kw>
+<msg timestamp="20221114 19:36:53.744" level="INFO">${IsVisible} = True</msg>
+<status status="PASS" starttime="20221114 19:36:53.707" endtime="20221114 19:36:53.744"/>
+</kw>
+<if>
+<branch type="IF" condition="${bExpected} and ${IsVisible}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'Message is required' is displayed.</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221114 19:36:53.745" level="INFO">Correct! Expected Error: 'Message is required' is displayed.</msg>
+<status status="PASS" starttime="20221114 19:36:53.745" endtime="20221114 19:36:53.745"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:53.744" endtime="20221114 19:36:53.745"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected} and ${IsVisible}==${False}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Incorrect! Expected Error: 'Message is required' is not displayed.</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.746" endtime="20221114 19:36:53.746"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.745" endtime="20221114 19:36:53.746"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${True}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Expected Error: 'Message is required' is displayed.</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.746" endtime="20221114 19:36:53.746"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.746" endtime="20221114 19:36:53.746"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${False}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'Message is required' is not displayed.</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.746" endtime="20221114 19:36:53.746"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.746" endtime="20221114 19:36:53.746"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" library="BuiltIn">
+<arg>Please check!</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:53.748" endtime="20221114 19:36:53.748"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:53.746" endtime="20221114 19:36:53.748"/>
+</branch>
+<status status="PASS" starttime="20221114 19:36:53.744" endtime="20221114 19:36:53.748"/>
+</if>
+<status status="PASS" starttime="20221114 19:36:53.706" endtime="20221114 19:36:53.748"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>ErrorMessages.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221114 19:36:54.089" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ErrorMessages.png"&gt;&lt;img src="ErrorMessages.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221114 19:36:53.748" endtime="20221114 19:36:54.089"/>
+</kw>
+<kw name="Enter Forename" library="ContactPage">
+<arg>${Forename}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Forename_Input}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:36:54.092" endtime="20221114 19:36:54.155"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Forename_Input}</arg>
+<arg>${Forename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221114 19:36:54.157" level="INFO">Typing text 'John' into text field 'css:input#forename'.</msg>
+<status status="PASS" starttime="20221114 19:36:54.156" endtime="20221114 19:36:54.390"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:54.090" endtime="20221114 19:36:54.390"/>
+</kw>
+<kw name="Enter Email" library="ContactPage">
+<arg>${Email}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Email_Input}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:36:54.390" endtime="20221114 19:36:54.451"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Email_Input}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221114 19:36:54.452" level="INFO">Typing text 'John.Doe@email.com' into text field 'css:input#email'.</msg>
+<status status="PASS" starttime="20221114 19:36:54.451" endtime="20221114 19:36:54.638"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:54.390" endtime="20221114 19:36:54.638"/>
+</kw>
+<kw name="Enter Message" library="ContactPage">
+<arg>${Message}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Message_TextArea}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:36:54.639" endtime="20221114 19:36:54.688"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Message_TextArea}</arg>
+<arg>${Message}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221114 19:36:54.689" level="INFO">Typing text 'Test' into text field 'css:textarea#message'.</msg>
+<status status="PASS" starttime="20221114 19:36:54.688" endtime="20221114 19:36:54.875"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:54.639" endtime="20221114 19:36:54.875"/>
+</kw>
+<kw name="Verify Alert Error Message is Displayed" library="ContactPage">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${IsVisible}</var>
+<arg>element should be visible</arg>
+<arg>${Alert_Err_Msg}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${Alert_Err_Msg}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221114 19:36:55.207" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221114 19:36:55.208" level="FAIL">Element with locator '//div[@class="alert alert-error ng-scope"]' not found.</msg>
+<status status="FAIL" starttime="20221114 19:36:54.878" endtime="20221114 19:36:55.228"/>
+</kw>
+<msg timestamp="20221114 19:36:55.228" level="INFO">${IsVisible} = False</msg>
+<status status="PASS" starttime="20221114 19:36:54.877" endtime="20221114 19:36:55.228"/>
+</kw>
+<if>
+<branch type="IF" condition="${bExpected} and ${IsVisible}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'We welcome your feedback - but we won't get it unless you complete the form correctly.' is displayed.</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.229" endtime="20221114 19:36:55.229"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.229" endtime="20221114 19:36:55.229"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected} and ${IsVisible}==${False}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Incorrect! Expected Error: 'We welcome your feedback - but we won't get it unless you complete the form correctly.' is not displayed.</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.230" endtime="20221114 19:36:55.230"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.229" endtime="20221114 19:36:55.230"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${True}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Incorrect! Expected Error: 'We welcome your feedback - but we won't get it unless you complete the form correctly.' is displayed.</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.230" endtime="20221114 19:36:55.230"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.230" endtime="20221114 19:36:55.230"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${False}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'We welcome your feedback - but we won't get it unless you complete the form correctly.' is not displayed.</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221114 19:36:55.231" level="INFO">Correct! Expected Error: 'We welcome your feedback - but we won't get it unless you complete the form correctly.' is not displayed.</msg>
+<status status="PASS" starttime="20221114 19:36:55.231" endtime="20221114 19:36:55.231"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:55.230" endtime="20221114 19:36:55.231"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" library="BuiltIn">
+<arg>Please check!</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.231" endtime="20221114 19:36:55.232"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.231" endtime="20221114 19:36:55.232"/>
+</branch>
+<status status="PASS" starttime="20221114 19:36:55.228" endtime="20221114 19:36:55.232"/>
+</if>
+<status status="PASS" starttime="20221114 19:36:54.875" endtime="20221114 19:36:55.233"/>
+</kw>
+<kw name="Verify Forename Error Message is Displayed" library="ContactPage">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${IsVisible}</var>
+<arg>element should be visible</arg>
+<arg>${Forename_Err_Msg}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${Forename_Err_Msg}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221114 19:36:55.461" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221114 19:36:55.462" level="FAIL">Element with locator 'css:span#forename-err' not found.</msg>
+<status status="FAIL" starttime="20221114 19:36:55.233" endtime="20221114 19:36:55.465"/>
+</kw>
+<msg timestamp="20221114 19:36:55.465" level="INFO">${IsVisible} = False</msg>
+<status status="PASS" starttime="20221114 19:36:55.233" endtime="20221114 19:36:55.466"/>
+</kw>
+<if>
+<branch type="IF" condition="${bExpected} and ${IsVisible}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'Forename is required' is displayed'</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.467" endtime="20221114 19:36:55.467"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.466" endtime="20221114 19:36:55.467"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected} and ${IsVisible}==${False}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Incorrect! Expected Error: 'Forename is required' is not displayed.</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.467" endtime="20221114 19:36:55.467"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.467" endtime="20221114 19:36:55.467"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${True}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Incorrect! Expected Error: 'Forename is required' is displayed'</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.468" endtime="20221114 19:36:55.468"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.468" endtime="20221114 19:36:55.468"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${False}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'Forename is required' is not displayed'</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221114 19:36:55.469" level="INFO">Correct! Expected Error: 'Forename is required' is not displayed'</msg>
+<status status="PASS" starttime="20221114 19:36:55.468" endtime="20221114 19:36:55.469"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:55.468" endtime="20221114 19:36:55.469"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" library="BuiltIn">
+<arg>Please check!</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.469" endtime="20221114 19:36:55.469"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.469" endtime="20221114 19:36:55.469"/>
+</branch>
+<status status="PASS" starttime="20221114 19:36:55.466" endtime="20221114 19:36:55.469"/>
+</if>
+<status status="PASS" starttime="20221114 19:36:55.233" endtime="20221114 19:36:55.469"/>
+</kw>
+<kw name="Verify Email Error Message is Displayed" library="ContactPage">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${IsVisible}</var>
+<arg>element should be visible</arg>
+<arg>${Email_Err_Msg}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${Email_Err_Msg}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221114 19:36:55.669" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221114 19:36:55.669" level="FAIL">Element with locator 'css:span#email-err' not found.</msg>
+<status status="FAIL" starttime="20221114 19:36:55.470" endtime="20221114 19:36:55.671"/>
+</kw>
+<msg timestamp="20221114 19:36:55.672" level="INFO">${IsVisible} = False</msg>
+<status status="PASS" starttime="20221114 19:36:55.470" endtime="20221114 19:36:55.672"/>
+</kw>
+<if>
+<branch type="IF" condition="${bExpected} and ${IsVisible}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'Email is required' is displayed.</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.673" endtime="20221114 19:36:55.675"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.673" endtime="20221114 19:36:55.675"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected} and ${IsVisible}==${False}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Incorrect! Expected Error: 'Email is required' is not displayed.</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.676" endtime="20221114 19:36:55.676"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.675" endtime="20221114 19:36:55.676"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${True}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Incorrect! Expected Error: 'Email is required' is displayed.</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.677" endtime="20221114 19:36:55.677"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.677" endtime="20221114 19:36:55.677"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${False}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'Email is required' is not displayed.</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221114 19:36:55.679" level="INFO">Correct! Expected Error: 'Email is required' is not displayed.</msg>
+<status status="PASS" starttime="20221114 19:36:55.678" endtime="20221114 19:36:55.679"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:55.678" endtime="20221114 19:36:55.679"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" library="BuiltIn">
+<arg>Please check!</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.680" endtime="20221114 19:36:55.680"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.680" endtime="20221114 19:36:55.680"/>
+</branch>
+<status status="PASS" starttime="20221114 19:36:55.672" endtime="20221114 19:36:55.680"/>
+</if>
+<status status="PASS" starttime="20221114 19:36:55.470" endtime="20221114 19:36:55.681"/>
+</kw>
+<kw name="Verify Message Error Message is Displayed" library="ContactPage">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${IsVisible}</var>
+<arg>element should be visible</arg>
+<arg>${Message_Err_Msg}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${Message_Err_Msg}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221114 19:36:55.881" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221114 19:36:55.882" level="FAIL">Element with locator 'css:span#message-err' not found.</msg>
+<status status="FAIL" starttime="20221114 19:36:55.683" endtime="20221114 19:36:55.883"/>
+</kw>
+<msg timestamp="20221114 19:36:55.884" level="INFO">${IsVisible} = False</msg>
+<status status="PASS" starttime="20221114 19:36:55.682" endtime="20221114 19:36:55.884"/>
+</kw>
+<if>
+<branch type="IF" condition="${bExpected} and ${IsVisible}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'Message is required' is displayed.</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.884" endtime="20221114 19:36:55.885"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.884" endtime="20221114 19:36:55.885"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected} and ${IsVisible}==${False}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Incorrect! Expected Error: 'Message is required' is not displayed.</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.885" endtime="20221114 19:36:55.885"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.885" endtime="20221114 19:36:55.885"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${True}">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Expected Error: 'Message is required' is displayed.</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.886" endtime="20221114 19:36:55.886"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.886" endtime="20221114 19:36:55.886"/>
+</branch>
+<branch type="ELSE IF" condition="${bExpected}==${False} and ${IsVisible}==${False}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Expected Error: 'Message is required' is not displayed.</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221114 19:36:55.888" level="INFO">Correct! Expected Error: 'Message is required' is not displayed.</msg>
+<status status="PASS" starttime="20221114 19:36:55.887" endtime="20221114 19:36:55.888"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:55.887" endtime="20221114 19:36:55.888"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" library="BuiltIn">
+<arg>Please check!</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20221114 19:36:55.888" endtime="20221114 19:36:55.888"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:36:55.888" endtime="20221114 19:36:55.888"/>
+</branch>
+<status status="PASS" starttime="20221114 19:36:55.884" endtime="20221114 19:36:55.889"/>
+</if>
+<status status="PASS" starttime="20221114 19:36:55.681" endtime="20221114 19:36:55.889"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>NoErrorMessages.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221114 19:36:56.138" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="NoErrorMessages.png"&gt;&lt;img src="NoErrorMessages.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221114 19:36:55.889" endtime="20221114 19:36:56.138"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:42.257" endtime="20221114 19:36:56.139"/>
+</test>
+<status status="PASS" starttime="20221114 19:36:41.231" endtime="20221114 19:36:56.146"/>
+</suite>
+<suite id="s1-s2" name="TC2" source="C:\Users\asus-pc\Documents\Cher\Projects\PlanIT_Assessment\TestCases\TC2.robot">
+<test id="s1-s2-t1" name="TC2" line="12">
+<kw name="Go to Jupitor Toys" library="General" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://jupiter.cloud.planittesting.com</arg>
+<arg>browser=gc</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221114 19:36:56.195" level="INFO">Opening browser 'gc' to base url 'https://jupiter.cloud.planittesting.com'.</msg>
+<status status="PASS" starttime="20221114 19:36:56.193" endtime="20221114 19:37:00.778"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221114 19:37:00.778" endtime="20221114 19:37:00.938"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:56.192" endtime="20221114 19:37:00.938"/>
+</kw>
+<kw name="Verify Landing Page is Displayed" library="HomePage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Logo}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:00.938" endtime="20221114 19:37:01.010"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:00.938" endtime="20221114 19:37:01.010"/>
+</kw>
+<kw name="Go to Contacts" library="HomePage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Contact_Menu}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:01.011" endtime="20221114 19:37:01.056"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Contact_Menu}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:01.057" level="INFO">Clicking element 'css:a[href="#/contact"]'.</msg>
+<status status="PASS" starttime="20221114 19:37:01.056" endtime="20221114 19:37:01.157"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:01.011" endtime="20221114 19:37:01.158"/>
+</kw>
+<kw name="Enter Forename" library="ContactPage">
+<arg>${Forename}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Forename_Input}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:01.159" endtime="20221114 19:37:01.465"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Forename_Input}</arg>
+<arg>${Forename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:01.465" level="INFO">Typing text 'John' into text field 'css:input#forename'.</msg>
+<status status="PASS" starttime="20221114 19:37:01.465" endtime="20221114 19:37:01.615"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:01.158" endtime="20221114 19:37:01.616"/>
+</kw>
+<kw name="Enter Email" library="ContactPage">
+<arg>${Email}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Email_Input}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:01.616" endtime="20221114 19:37:01.650"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Email_Input}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:01.650" level="INFO">Typing text 'John.Doe@email.com' into text field 'css:input#email'.</msg>
+<status status="PASS" starttime="20221114 19:37:01.650" endtime="20221114 19:37:01.818"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:01.616" endtime="20221114 19:37:01.818"/>
+</kw>
+<kw name="Enter Message" library="ContactPage">
+<arg>${Message}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Message_TextArea}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:01.827" endtime="20221114 19:37:01.856"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Message_TextArea}</arg>
+<arg>${Message}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:01.869" level="INFO">Typing text 'Test' into text field 'css:textarea#message'.</msg>
+<status status="PASS" starttime="20221114 19:37:01.856" endtime="20221114 19:37:02.089"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:01.818" endtime="20221114 19:37:02.089"/>
+</kw>
+<kw name="Submit Contact" library="ContactPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Submit_Btn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:02.089" endtime="20221114 19:37:02.158"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Submit_Btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:02.161" level="INFO">Clicking element '//a[.="Submit"]'.</msg>
+<status status="PASS" starttime="20221114 19:37:02.159" endtime="20221114 19:37:02.312"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:02.089" endtime="20221114 19:37:02.312"/>
+</kw>
+<kw name="Verify Success Message is Displayed" library="ContactPage">
+<arg>${Forename}</arg>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<arg>${Loading_Bar}</arg>
+<arg>timeout=5m</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" starttime="20221114 19:37:02.314" endtime="20221114 19:37:04.914"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Success_Msg}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:04.914" endtime="20221114 19:37:04.961"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${IsVisible}</var>
+<arg>element should be visible</arg>
+<arg>${Success_Msg}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${Success_Msg}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221114 19:37:04.997" level="INFO">Element '//div[@class="alert alert-success"]' is displayed.</msg>
+<status status="PASS" starttime="20221114 19:37:04.961" endtime="20221114 19:37:04.997"/>
+</kw>
+<msg timestamp="20221114 19:37:04.997" level="INFO">${IsVisible} = True</msg>
+<status status="PASS" starttime="20221114 19:37:04.961" endtime="20221114 19:37:04.997"/>
+</kw>
+<if>
+<branch type="IF" condition="${IsVisible}">
+<kw name="Log" library="BuiltIn">
+<arg>Correct! Success Message: 'Thanks ${Forename}, we appreciate your feedback.' is displayed.</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221114 19:37:04.997" level="INFO">Correct! Success Message: 'Thanks John, we appreciate your feedback.' is displayed.</msg>
+<status status="PASS" starttime="20221114 19:37:04.997" endtime="20221114 19:37:04.997"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:04.997" endtime="20221114 19:37:04.997"/>
+</branch>
+<branch type="ELSE">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Fail</arg>
+<arg>Incorrect! Success Message: 'Thanks ${Forename}, we appreciate your feedback.' is displayed.</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" starttime="20221114 19:37:04.997" endtime="20221114 19:37:04.997"/>
+</kw>
+<status status="NOT RUN" starttime="20221114 19:37:04.997" endtime="20221114 19:37:04.997"/>
+</branch>
+<status status="PASS" starttime="20221114 19:37:04.997" endtime="20221114 19:37:04.997"/>
+</if>
+<status status="PASS" starttime="20221114 19:37:02.312" endtime="20221114 19:37:04.997"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>SuccessMessage.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221114 19:37:05.174" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="SuccessMessage.png"&gt;&lt;img src="SuccessMessage.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221114 19:37:04.997" endtime="20221114 19:37:05.174"/>
+</kw>
+<status status="PASS" starttime="20221114 19:36:56.191" endtime="20221114 19:37:05.174"/>
+</test>
+<status status="PASS" starttime="20221114 19:36:56.150" endtime="20221114 19:37:05.174"/>
+</suite>
+<suite id="s1-s3" name="TC3" source="C:\Users\asus-pc\Documents\Cher\Projects\PlanIT_Assessment\TestCases\TC3.robot">
+<test id="s1-s3-t1" name="TC3" line="16">
+<kw name="Go to Jupitor Toys" library="General" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://jupiter.cloud.planittesting.com</arg>
+<arg>browser=gc</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221114 19:37:05.277" level="INFO">Opening browser 'gc' to base url 'https://jupiter.cloud.planittesting.com'.</msg>
+<status status="PASS" starttime="20221114 19:37:05.276" endtime="20221114 19:37:10.775"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221114 19:37:10.775" endtime="20221114 19:37:10.950"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:05.274" endtime="20221114 19:37:10.950"/>
+</kw>
+<kw name="Verify Landing Page is Displayed" library="HomePage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Logo}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:10.952" endtime="20221114 19:37:11.002"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:10.950" endtime="20221114 19:37:11.002"/>
+</kw>
+<kw name="Go to Shop" library="HomePage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Shop_Menu}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:11.003" endtime="20221114 19:37:11.055"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Shop_Menu}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:11.056" level="INFO">Clicking element 'css:a[href="#/shop"]'.</msg>
+<status status="PASS" starttime="20221114 19:37:11.055" endtime="20221114 19:37:11.188"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:11.003" endtime="20221114 19:37:11.188"/>
+</kw>
+<kw name="Buy Items" library="ShopPage">
+<arg>${Items_Frog}</arg>
+<arg>${Qty_Frog}</arg>
+<kw name="Replace Variables" library="BuiltIn">
+<var>${Buy_Button}</var>
+<arg>${Buy_Btn}</arg>
+<doc>Replaces variables in the given text with their current values.</doc>
+<msg timestamp="20221114 19:37:11.188" level="INFO">${Buy_Button} = //h4[.="Stuffed Frog"]/following-sibling::p/a</msg>
+<status status="PASS" starttime="20221114 19:37:11.188" endtime="20221114 19:37:11.193"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Buy_Button}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:11.193" endtime="20221114 19:37:11.899"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>${Quantity}</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Buy_Button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:11.902" level="INFO">Clicking element '//h4[.="Stuffed Frog"]/following-sibling::p/a'.</msg>
+<status status="PASS" starttime="20221114 19:37:11.902" endtime="20221114 19:37:12.111"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:11.901" endtime="20221114 19:37:12.111"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Buy_Button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:12.111" level="INFO">Clicking element '//h4[.="Stuffed Frog"]/following-sibling::p/a'.</msg>
+<status status="PASS" starttime="20221114 19:37:12.111" endtime="20221114 19:37:12.275"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:12.111" endtime="20221114 19:37:12.275"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:11.899" endtime="20221114 19:37:12.275"/>
+</for>
+<status status="PASS" starttime="20221114 19:37:11.188" endtime="20221114 19:37:12.275"/>
+</kw>
+<kw name="Buy Items" library="ShopPage">
+<arg>${Items_Bunny}</arg>
+<arg>${Qty_Bunny}</arg>
+<kw name="Replace Variables" library="BuiltIn">
+<var>${Buy_Button}</var>
+<arg>${Buy_Btn}</arg>
+<doc>Replaces variables in the given text with their current values.</doc>
+<msg timestamp="20221114 19:37:12.280" level="INFO">${Buy_Button} = //h4[.="Fluffy Bunny"]/following-sibling::p/a</msg>
+<status status="PASS" starttime="20221114 19:37:12.279" endtime="20221114 19:37:12.280"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Buy_Button}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:12.281" endtime="20221114 19:37:12.391"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>${Quantity}</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Buy_Button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:12.395" level="INFO">Clicking element '//h4[.="Fluffy Bunny"]/following-sibling::p/a'.</msg>
+<status status="PASS" starttime="20221114 19:37:12.394" endtime="20221114 19:37:12.603"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:12.394" endtime="20221114 19:37:12.603"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Buy_Button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:12.605" level="INFO">Clicking element '//h4[.="Fluffy Bunny"]/following-sibling::p/a'.</msg>
+<status status="PASS" starttime="20221114 19:37:12.604" endtime="20221114 19:37:12.749"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:12.603" endtime="20221114 19:37:12.749"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Buy_Button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:12.752" level="INFO">Clicking element '//h4[.="Fluffy Bunny"]/following-sibling::p/a'.</msg>
+<status status="PASS" starttime="20221114 19:37:12.750" endtime="20221114 19:37:12.825"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:12.750" endtime="20221114 19:37:12.825"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Buy_Button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:12.829" level="INFO">Clicking element '//h4[.="Fluffy Bunny"]/following-sibling::p/a'.</msg>
+<status status="PASS" starttime="20221114 19:37:12.827" endtime="20221114 19:37:12.896"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:12.826" endtime="20221114 19:37:12.896"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Buy_Button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:12.897" level="INFO">Clicking element '//h4[.="Fluffy Bunny"]/following-sibling::p/a'.</msg>
+<status status="PASS" starttime="20221114 19:37:12.897" endtime="20221114 19:37:13.037"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:12.896" endtime="20221114 19:37:13.037"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:12.392" endtime="20221114 19:37:13.037"/>
+</for>
+<status status="PASS" starttime="20221114 19:37:12.276" endtime="20221114 19:37:13.037"/>
+</kw>
+<kw name="Buy Items" library="ShopPage">
+<arg>${Items_Bear}</arg>
+<arg>${Qty_Bear}</arg>
+<kw name="Replace Variables" library="BuiltIn">
+<var>${Buy_Button}</var>
+<arg>${Buy_Btn}</arg>
+<doc>Replaces variables in the given text with their current values.</doc>
+<msg timestamp="20221114 19:37:13.037" level="INFO">${Buy_Button} = //h4[.="Valentine Bear"]/following-sibling::p/a</msg>
+<status status="PASS" starttime="20221114 19:37:13.037" endtime="20221114 19:37:13.037"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Buy_Button}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:13.037" endtime="20221114 19:37:13.144"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>${Quantity}</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Buy_Button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:13.145" level="INFO">Clicking element '//h4[.="Valentine Bear"]/following-sibling::p/a'.</msg>
+<status status="PASS" starttime="20221114 19:37:13.144" endtime="20221114 19:37:13.278"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:13.144" endtime="20221114 19:37:13.278"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Buy_Button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:13.279" level="INFO">Clicking element '//h4[.="Valentine Bear"]/following-sibling::p/a'.</msg>
+<status status="PASS" starttime="20221114 19:37:13.278" endtime="20221114 19:37:13.348"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:13.278" endtime="20221114 19:37:13.348"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Buy_Button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:13.348" level="INFO">Clicking element '//h4[.="Valentine Bear"]/following-sibling::p/a'.</msg>
+<status status="PASS" starttime="20221114 19:37:13.348" endtime="20221114 19:37:13.450"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:13.348" endtime="20221114 19:37:13.450"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:13.144" endtime="20221114 19:37:13.450"/>
+</for>
+<status status="PASS" starttime="20221114 19:37:13.037" endtime="20221114 19:37:13.450"/>
+</kw>
+<kw name="Get Item Price" library="ShopPage">
+<var>${Frog_Price}</var>
+<arg>${Items_Frog}</arg>
+<kw name="Replace Variables" library="BuiltIn">
+<var>${Price_Text}</var>
+<arg>${Price_Text}</arg>
+<doc>Replaces variables in the given text with their current values.</doc>
+<msg timestamp="20221114 19:37:13.453" level="INFO">${Price_Text} = //h4[.="Stuffed Frog"]/following-sibling::p/span</msg>
+<status status="PASS" starttime="20221114 19:37:13.452" endtime="20221114 19:37:13.453"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${Price}</var>
+<arg>${Price_Text}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:13.546" level="INFO">${Price} = $10.99</msg>
+<status status="PASS" starttime="20221114 19:37:13.454" endtime="20221114 19:37:13.546"/>
+</kw>
+<msg timestamp="20221114 19:37:13.546" level="INFO">${Frog_Price} = $10.99</msg>
+<status status="PASS" starttime="20221114 19:37:13.450" endtime="20221114 19:37:13.546"/>
+</kw>
+<kw name="Get Item Price" library="ShopPage">
+<var>${Bunny_Price}</var>
+<arg>${Items_Bunny}</arg>
+<kw name="Replace Variables" library="BuiltIn">
+<var>${Price_Text}</var>
+<arg>${Price_Text}</arg>
+<doc>Replaces variables in the given text with their current values.</doc>
+<msg timestamp="20221114 19:37:13.549" level="INFO">${Price_Text} = //h4[.="Fluffy Bunny"]/following-sibling::p/span</msg>
+<status status="PASS" starttime="20221114 19:37:13.547" endtime="20221114 19:37:13.549"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${Price}</var>
+<arg>${Price_Text}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:13.634" level="INFO">${Price} = $9.99</msg>
+<status status="PASS" starttime="20221114 19:37:13.550" endtime="20221114 19:37:13.634"/>
+</kw>
+<msg timestamp="20221114 19:37:13.634" level="INFO">${Bunny_Price} = $9.99</msg>
+<status status="PASS" starttime="20221114 19:37:13.547" endtime="20221114 19:37:13.634"/>
+</kw>
+<kw name="Get Item Price" library="ShopPage">
+<var>${Bear_Price}</var>
+<arg>${Items_Bear}</arg>
+<kw name="Replace Variables" library="BuiltIn">
+<var>${Price_Text}</var>
+<arg>${Price_Text}</arg>
+<doc>Replaces variables in the given text with their current values.</doc>
+<msg timestamp="20221114 19:37:13.637" level="INFO">${Price_Text} = //h4[.="Valentine Bear"]/following-sibling::p/span</msg>
+<status status="PASS" starttime="20221114 19:37:13.634" endtime="20221114 19:37:13.637"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${Price}</var>
+<arg>${Price_Text}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:13.731" level="INFO">${Price} = $14.99</msg>
+<status status="PASS" starttime="20221114 19:37:13.637" endtime="20221114 19:37:13.732"/>
+</kw>
+<msg timestamp="20221114 19:37:13.733" level="INFO">${Bear_Price} = $14.99</msg>
+<status status="PASS" starttime="20221114 19:37:13.634" endtime="20221114 19:37:13.733"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>Shop.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221114 19:37:14.378" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Shop.png"&gt;&lt;img src="Shop.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221114 19:37:13.733" endtime="20221114 19:37:14.378"/>
+</kw>
+<kw name="Go to Cart" library="ShopPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Cart_Link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:14.378" endtime="20221114 19:37:14.524"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Cart_Link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:14.524" level="INFO">Clicking element 'css:a[href="#/cart"]'.</msg>
+<status status="PASS" starttime="20221114 19:37:14.524" endtime="20221114 19:37:14.740"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:14.378" endtime="20221114 19:37:14.741"/>
+</kw>
+<kw name="Verify Item Subtotal in Car Table" library="ShopPage">
+<var>${Subtotal_Frog}</var>
+<arg>${Items_Frog}</arg>
+<arg>${Frog_Price}</arg>
+<arg>${Qty_Frog}</arg>
+<kw name="Get Column Index of Cart Table" library="ShopPage">
+<var>${Col_Index}</var>
+<arg>Subtotal</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Cart_Table}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:14.744" endtime="20221114 19:37:15.118"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Col_Count}</var>
+<arg>${Cart_Table}//th</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:15.149" level="INFO">${Col_Count} = 5</msg>
+<status status="PASS" starttime="20221114 19:37:15.118" endtime="20221114 19:37:15.149"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Col_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:15.209" level="INFO">${UI_Col_Name} = Item</msg>
+<status status="PASS" starttime="20221114 19:37:15.154" endtime="20221114 19:37:15.209"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:15.210" endtime="20221114 19:37:15.220"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:15.154" endtime="20221114 19:37:15.220"/>
+</iter>
+<iter>
+<var name="${Index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:15.284" level="INFO">${UI_Col_Name} = Price</msg>
+<status status="PASS" starttime="20221114 19:37:15.221" endtime="20221114 19:37:15.284"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:15.284" endtime="20221114 19:37:15.284"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:15.220" endtime="20221114 19:37:15.284"/>
+</iter>
+<iter>
+<var name="${Index}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:15.347" level="INFO">${UI_Col_Name} = Quantity</msg>
+<status status="PASS" starttime="20221114 19:37:15.284" endtime="20221114 19:37:15.347"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:15.347" endtime="20221114 19:37:15.355"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:15.284" endtime="20221114 19:37:15.355"/>
+</iter>
+<iter>
+<var name="${Index}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:15.413" level="INFO">${UI_Col_Name} = Subtotal</msg>
+<status status="PASS" starttime="20221114 19:37:15.355" endtime="20221114 19:37:15.413"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:15.413" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:15.413" endtime="20221114 19:37:15.413"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:15.355" endtime="20221114 19:37:15.413"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:15.149" endtime="20221114 19:37:15.413"/>
+</for>
+<msg timestamp="20221114 19:37:15.413" level="INFO">${Col_Index} = 4</msg>
+<status status="PASS" starttime="20221114 19:37:14.743" endtime="20221114 19:37:15.413"/>
+</kw>
+<kw name="Get Row Index of Cart Table" library="ShopPage">
+<var>${Row_Index}</var>
+<arg>${Item}</arg>
+<kw name="Get Column Index of Cart Table" library="ShopPage">
+<var>${Col_Index}</var>
+<arg>Item</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Cart_Table}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:15.413" endtime="20221114 19:37:15.465"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Col_Count}</var>
+<arg>${Cart_Table}//th</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:15.484" level="INFO">${Col_Count} = 5</msg>
+<status status="PASS" starttime="20221114 19:37:15.465" endtime="20221114 19:37:15.484"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Col_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:15.554" level="INFO">${UI_Col_Name} = Item</msg>
+<status status="PASS" starttime="20221114 19:37:15.484" endtime="20221114 19:37:15.554"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:15.557" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:15.555" endtime="20221114 19:37:15.557"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:15.484" endtime="20221114 19:37:15.559"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:15.484" endtime="20221114 19:37:15.559"/>
+</for>
+<msg timestamp="20221114 19:37:15.559" level="INFO">${Col_Index} = 1</msg>
+<status status="PASS" starttime="20221114 19:37:15.413" endtime="20221114 19:37:15.559"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Row_Count}</var>
+<arg>${Cart_Table}//tbody//tr</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:15.586" level="INFO">${Row_Count} = 3</msg>
+<status status="PASS" starttime="20221114 19:37:15.559" endtime="20221114 19:37:15.586"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Row_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Row_Name}</var>
+<arg>${Cart_Table}//tbody//tr\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:15.660" level="INFO">${UI_Row_Name} = Stuffed Frog $10.99 $21.98</msg>
+<status status="PASS" starttime="20221114 19:37:15.586" endtime="20221114 19:37:15.660"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${Row_Name}' in '${UI_Row_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:15.662" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:15.660" endtime="20221114 19:37:15.662"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:15.586" endtime="20221114 19:37:15.662"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:15.586" endtime="20221114 19:37:15.662"/>
+</for>
+<msg timestamp="20221114 19:37:15.662" level="INFO">${Row_Index} = 1</msg>
+<status status="PASS" starttime="20221114 19:37:15.413" endtime="20221114 19:37:15.662"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Locator}</var>
+<arg>${Cart_Table}//tbody//tr\[${Row_Index}]//td\[${Col_Index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221114 19:37:15.670" level="INFO">${Locator} = //table[@class="table table-striped cart-items"]//tbody//tr[1]//td[4]</msg>
+<status status="PASS" starttime="20221114 19:37:15.662" endtime="20221114 19:37:15.670"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Subtotal}</var>
+<arg>${Locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:15.722" level="INFO">${UI_Subtotal} = $21.98</msg>
+<status status="PASS" starttime="20221114 19:37:15.671" endtime="20221114 19:37:15.722"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${Price}</var>
+<arg>${Expected_Price}</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20221114 19:37:15.723" level="INFO">${Price} = 10.99</msg>
+<status status="PASS" starttime="20221114 19:37:15.722" endtime="20221114 19:37:15.723"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${Price}</var>
+<arg>${Price}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20221114 19:37:15.724" level="INFO">${Price} = 10.99</msg>
+<status status="PASS" starttime="20221114 19:37:15.724" endtime="20221114 19:37:15.724"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${Expected_SubTotal}</var>
+<arg>${Price}*${Quantity}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221114 19:37:15.727" level="INFO">${Expected_SubTotal} = 21.98</msg>
+<status status="PASS" starttime="20221114 19:37:15.727" endtime="20221114 19:37:15.727"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>should be equal</arg>
+<arg>$${Expected_SubTotal}</arg>
+<arg>${UI_Subtotal}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>$${Expected_SubTotal}</arg>
+<arg>${UI_Subtotal}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221114 19:37:15.727" endtime="20221114 19:37:15.727"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:15.727" endtime="20221114 19:37:15.727"/>
+</kw>
+<msg timestamp="20221114 19:37:15.727" level="INFO">${Subtotal_Frog} = $21.98</msg>
+<status status="PASS" starttime="20221114 19:37:14.742" endtime="20221114 19:37:15.727"/>
+</kw>
+<kw name="Verify Item Subtotal in Car Table" library="ShopPage">
+<var>${Subtotal_Bunny}</var>
+<arg>${Items_Bunny}</arg>
+<arg>${Bunny_Price}</arg>
+<arg>${Qty_Bunny}</arg>
+<kw name="Get Column Index of Cart Table" library="ShopPage">
+<var>${Col_Index}</var>
+<arg>Subtotal</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Cart_Table}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:15.727" endtime="20221114 19:37:15.769"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Col_Count}</var>
+<arg>${Cart_Table}//th</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:15.783" level="INFO">${Col_Count} = 5</msg>
+<status status="PASS" starttime="20221114 19:37:15.770" endtime="20221114 19:37:15.783"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Col_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:15.811" level="INFO">${UI_Col_Name} = Item</msg>
+<status status="PASS" starttime="20221114 19:37:15.783" endtime="20221114 19:37:15.811"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:15.811" endtime="20221114 19:37:15.811"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:15.783" endtime="20221114 19:37:15.811"/>
+</iter>
+<iter>
+<var name="${Index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:15.843" level="INFO">${UI_Col_Name} = Price</msg>
+<status status="PASS" starttime="20221114 19:37:15.811" endtime="20221114 19:37:15.843"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:15.843" endtime="20221114 19:37:15.852"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:15.811" endtime="20221114 19:37:15.852"/>
+</iter>
+<iter>
+<var name="${Index}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:15.878" level="INFO">${UI_Col_Name} = Quantity</msg>
+<status status="PASS" starttime="20221114 19:37:15.852" endtime="20221114 19:37:15.878"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:15.878" endtime="20221114 19:37:15.878"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:15.852" endtime="20221114 19:37:15.878"/>
+</iter>
+<iter>
+<var name="${Index}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:15.914" level="INFO">${UI_Col_Name} = Subtotal</msg>
+<status status="PASS" starttime="20221114 19:37:15.878" endtime="20221114 19:37:15.914"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:15.914" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:15.914" endtime="20221114 19:37:15.914"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:15.878" endtime="20221114 19:37:15.914"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:15.783" endtime="20221114 19:37:15.914"/>
+</for>
+<msg timestamp="20221114 19:37:15.914" level="INFO">${Col_Index} = 4</msg>
+<status status="PASS" starttime="20221114 19:37:15.727" endtime="20221114 19:37:15.914"/>
+</kw>
+<kw name="Get Row Index of Cart Table" library="ShopPage">
+<var>${Row_Index}</var>
+<arg>${Item}</arg>
+<kw name="Get Column Index of Cart Table" library="ShopPage">
+<var>${Col_Index}</var>
+<arg>Item</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Cart_Table}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:15.922" endtime="20221114 19:37:15.968"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Col_Count}</var>
+<arg>${Cart_Table}//th</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.006" level="INFO">${Col_Count} = 5</msg>
+<status status="PASS" starttime="20221114 19:37:15.968" endtime="20221114 19:37:16.006"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Col_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.043" level="INFO">${UI_Col_Name} = Item</msg>
+<status status="PASS" starttime="20221114 19:37:16.007" endtime="20221114 19:37:16.043"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:16.049" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:16.043" endtime="20221114 19:37:16.049"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.007" endtime="20221114 19:37:16.049"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:16.006" endtime="20221114 19:37:16.049"/>
+</for>
+<msg timestamp="20221114 19:37:16.049" level="INFO">${Col_Index} = 1</msg>
+<status status="PASS" starttime="20221114 19:37:15.914" endtime="20221114 19:37:16.049"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Row_Count}</var>
+<arg>${Cart_Table}//tbody//tr</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.070" level="INFO">${Row_Count} = 3</msg>
+<status status="PASS" starttime="20221114 19:37:16.049" endtime="20221114 19:37:16.070"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Row_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Row_Name}</var>
+<arg>${Cart_Table}//tbody//tr\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.126" level="INFO">${UI_Row_Name} = Stuffed Frog $10.99 $21.98</msg>
+<status status="PASS" starttime="20221114 19:37:16.070" endtime="20221114 19:37:16.126"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${Row_Name}' in '${UI_Row_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:16.126" endtime="20221114 19:37:16.126"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.070" endtime="20221114 19:37:16.126"/>
+</iter>
+<iter>
+<var name="${Index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Row_Name}</var>
+<arg>${Cart_Table}//tbody//tr\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.213" level="INFO">${UI_Row_Name} = Fluffy Bunny $9.99 $49.95</msg>
+<status status="PASS" starttime="20221114 19:37:16.126" endtime="20221114 19:37:16.213"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${Row_Name}' in '${UI_Row_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:16.215" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:16.213" endtime="20221114 19:37:16.215"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.126" endtime="20221114 19:37:16.215"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:16.070" endtime="20221114 19:37:16.215"/>
+</for>
+<msg timestamp="20221114 19:37:16.216" level="INFO">${Row_Index} = 2</msg>
+<status status="PASS" starttime="20221114 19:37:15.914" endtime="20221114 19:37:16.216"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Locator}</var>
+<arg>${Cart_Table}//tbody//tr\[${Row_Index}]//td\[${Col_Index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221114 19:37:16.218" level="INFO">${Locator} = //table[@class="table table-striped cart-items"]//tbody//tr[2]//td[4]</msg>
+<status status="PASS" starttime="20221114 19:37:16.217" endtime="20221114 19:37:16.218"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Subtotal}</var>
+<arg>${Locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.276" level="INFO">${UI_Subtotal} = $49.95</msg>
+<status status="PASS" starttime="20221114 19:37:16.218" endtime="20221114 19:37:16.276"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${Price}</var>
+<arg>${Expected_Price}</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20221114 19:37:16.277" level="INFO">${Price} = 9.99</msg>
+<status status="PASS" starttime="20221114 19:37:16.277" endtime="20221114 19:37:16.277"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${Price}</var>
+<arg>${Price}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20221114 19:37:16.279" level="INFO">${Price} = 9.99</msg>
+<status status="PASS" starttime="20221114 19:37:16.277" endtime="20221114 19:37:16.279"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${Expected_SubTotal}</var>
+<arg>${Price}*${Quantity}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221114 19:37:16.281" level="INFO">${Expected_SubTotal} = 49.95</msg>
+<status status="PASS" starttime="20221114 19:37:16.280" endtime="20221114 19:37:16.281"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>should be equal</arg>
+<arg>$${Expected_SubTotal}</arg>
+<arg>${UI_Subtotal}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>$${Expected_SubTotal}</arg>
+<arg>${UI_Subtotal}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221114 19:37:16.282" endtime="20221114 19:37:16.282"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.281" endtime="20221114 19:37:16.282"/>
+</kw>
+<msg timestamp="20221114 19:37:16.282" level="INFO">${Subtotal_Bunny} = $49.95</msg>
+<status status="PASS" starttime="20221114 19:37:15.727" endtime="20221114 19:37:16.282"/>
+</kw>
+<kw name="Verify Item Subtotal in Car Table" library="ShopPage">
+<var>${Subtotal_Bear}</var>
+<arg>${Bear_Price}</arg>
+<arg>${Bear_Price}</arg>
+<arg>${Qty_Bear}</arg>
+<kw name="Get Column Index of Cart Table" library="ShopPage">
+<var>${Col_Index}</var>
+<arg>Subtotal</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Cart_Table}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:16.284" endtime="20221114 19:37:16.324"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Col_Count}</var>
+<arg>${Cart_Table}//th</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.344" level="INFO">${Col_Count} = 5</msg>
+<status status="PASS" starttime="20221114 19:37:16.324" endtime="20221114 19:37:16.344"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Col_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.380" level="INFO">${UI_Col_Name} = Item</msg>
+<status status="PASS" starttime="20221114 19:37:16.344" endtime="20221114 19:37:16.380"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:16.380" endtime="20221114 19:37:16.380"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.344" endtime="20221114 19:37:16.380"/>
+</iter>
+<iter>
+<var name="${Index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.434" level="INFO">${UI_Col_Name} = Price</msg>
+<status status="PASS" starttime="20221114 19:37:16.380" endtime="20221114 19:37:16.434"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:16.434" endtime="20221114 19:37:16.434"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.380" endtime="20221114 19:37:16.434"/>
+</iter>
+<iter>
+<var name="${Index}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.476" level="INFO">${UI_Col_Name} = Quantity</msg>
+<status status="PASS" starttime="20221114 19:37:16.434" endtime="20221114 19:37:16.476"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:16.476" endtime="20221114 19:37:16.478"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.434" endtime="20221114 19:37:16.478"/>
+</iter>
+<iter>
+<var name="${Index}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.504" level="INFO">${UI_Col_Name} = Subtotal</msg>
+<status status="PASS" starttime="20221114 19:37:16.478" endtime="20221114 19:37:16.504"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:16.504" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:16.504" endtime="20221114 19:37:16.504"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.478" endtime="20221114 19:37:16.504"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:16.344" endtime="20221114 19:37:16.504"/>
+</for>
+<msg timestamp="20221114 19:37:16.504" level="INFO">${Col_Index} = 4</msg>
+<status status="PASS" starttime="20221114 19:37:16.283" endtime="20221114 19:37:16.504"/>
+</kw>
+<kw name="Get Row Index of Cart Table" library="ShopPage">
+<var>${Row_Index}</var>
+<arg>${Item}</arg>
+<kw name="Get Column Index of Cart Table" library="ShopPage">
+<var>${Col_Index}</var>
+<arg>Item</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Cart_Table}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:16.504" endtime="20221114 19:37:16.548"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Col_Count}</var>
+<arg>${Cart_Table}//th</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.569" level="INFO">${Col_Count} = 5</msg>
+<status status="PASS" starttime="20221114 19:37:16.548" endtime="20221114 19:37:16.569"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Col_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.598" level="INFO">${UI_Col_Name} = Item</msg>
+<status status="PASS" starttime="20221114 19:37:16.569" endtime="20221114 19:37:16.598"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:16.598" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:16.598" endtime="20221114 19:37:16.598"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.569" endtime="20221114 19:37:16.598"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:16.569" endtime="20221114 19:37:16.598"/>
+</for>
+<msg timestamp="20221114 19:37:16.598" level="INFO">${Col_Index} = 1</msg>
+<status status="PASS" starttime="20221114 19:37:16.504" endtime="20221114 19:37:16.598"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Row_Count}</var>
+<arg>${Cart_Table}//tbody//tr</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.623" level="INFO">${Row_Count} = 3</msg>
+<status status="PASS" starttime="20221114 19:37:16.598" endtime="20221114 19:37:16.623"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Row_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Row_Name}</var>
+<arg>${Cart_Table}//tbody//tr\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.676" level="INFO">${UI_Row_Name} = Stuffed Frog $10.99 $21.98</msg>
+<status status="PASS" starttime="20221114 19:37:16.623" endtime="20221114 19:37:16.676"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${Row_Name}' in '${UI_Row_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:16.676" endtime="20221114 19:37:16.677"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.623" endtime="20221114 19:37:16.677"/>
+</iter>
+<iter>
+<var name="${Index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Row_Name}</var>
+<arg>${Cart_Table}//tbody//tr\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.706" level="INFO">${UI_Row_Name} = Fluffy Bunny $9.99 $49.95</msg>
+<status status="PASS" starttime="20221114 19:37:16.677" endtime="20221114 19:37:16.706"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${Row_Name}' in '${UI_Row_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:16.706" endtime="20221114 19:37:16.706"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.677" endtime="20221114 19:37:16.706"/>
+</iter>
+<iter>
+<var name="${Index}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Row_Name}</var>
+<arg>${Cart_Table}//tbody//tr\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.762" level="INFO">${UI_Row_Name} = Valentine Bear $14.99 $44.97</msg>
+<status status="PASS" starttime="20221114 19:37:16.706" endtime="20221114 19:37:16.764"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${Row_Name}' in '${UI_Row_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:16.766" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:16.764" endtime="20221114 19:37:16.766"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.706" endtime="20221114 19:37:16.766"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:16.623" endtime="20221114 19:37:16.766"/>
+</for>
+<msg timestamp="20221114 19:37:16.766" level="INFO">${Row_Index} = 3</msg>
+<status status="PASS" starttime="20221114 19:37:16.504" endtime="20221114 19:37:16.766"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Locator}</var>
+<arg>${Cart_Table}//tbody//tr\[${Row_Index}]//td\[${Col_Index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221114 19:37:16.766" level="INFO">${Locator} = //table[@class="table table-striped cart-items"]//tbody//tr[3]//td[4]</msg>
+<status status="PASS" starttime="20221114 19:37:16.766" endtime="20221114 19:37:16.766"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Subtotal}</var>
+<arg>${Locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.814" level="INFO">${UI_Subtotal} = $44.97</msg>
+<status status="PASS" starttime="20221114 19:37:16.766" endtime="20221114 19:37:16.814"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${Price}</var>
+<arg>${Expected_Price}</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20221114 19:37:16.814" level="INFO">${Price} = 14.99</msg>
+<status status="PASS" starttime="20221114 19:37:16.814" endtime="20221114 19:37:16.814"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${Price}</var>
+<arg>${Price}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20221114 19:37:16.814" level="INFO">${Price} = 14.99</msg>
+<status status="PASS" starttime="20221114 19:37:16.814" endtime="20221114 19:37:16.814"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${Expected_SubTotal}</var>
+<arg>${Price}*${Quantity}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221114 19:37:16.814" level="INFO">${Expected_SubTotal} = 44.97</msg>
+<status status="PASS" starttime="20221114 19:37:16.814" endtime="20221114 19:37:16.814"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>should be equal</arg>
+<arg>$${Expected_SubTotal}</arg>
+<arg>${UI_Subtotal}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>$${Expected_SubTotal}</arg>
+<arg>${UI_Subtotal}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221114 19:37:16.814" endtime="20221114 19:37:16.814"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.814" endtime="20221114 19:37:16.822"/>
+</kw>
+<msg timestamp="20221114 19:37:16.822" level="INFO">${Subtotal_Bear} = $44.97</msg>
+<status status="PASS" starttime="20221114 19:37:16.282" endtime="20221114 19:37:16.823"/>
+</kw>
+<kw name="Verify Item Price in Car Table" library="ShopPage">
+<arg>${Items_Frog}</arg>
+<arg>${Frog_Price}</arg>
+<kw name="Get Column Index of Cart Table" library="ShopPage">
+<var>${Col_Index}</var>
+<arg>Price</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Cart_Table}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:16.823" endtime="20221114 19:37:16.864"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Col_Count}</var>
+<arg>${Cart_Table}//th</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.886" level="INFO">${Col_Count} = 5</msg>
+<status status="PASS" starttime="20221114 19:37:16.864" endtime="20221114 19:37:16.886"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Col_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.915" level="INFO">${UI_Col_Name} = Item</msg>
+<status status="PASS" starttime="20221114 19:37:16.886" endtime="20221114 19:37:16.915"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:16.915" endtime="20221114 19:37:16.923"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.886" endtime="20221114 19:37:16.923"/>
+</iter>
+<iter>
+<var name="${Index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:16.982" level="INFO">${UI_Col_Name} = Price</msg>
+<status status="PASS" starttime="20221114 19:37:16.923" endtime="20221114 19:37:16.982"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:16.993" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:16.982" endtime="20221114 19:37:16.993"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.923" endtime="20221114 19:37:16.996"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:16.886" endtime="20221114 19:37:16.996"/>
+</for>
+<msg timestamp="20221114 19:37:16.997" level="INFO">${Col_Index} = 2</msg>
+<status status="PASS" starttime="20221114 19:37:16.823" endtime="20221114 19:37:16.997"/>
+</kw>
+<kw name="Get Row Index of Cart Table" library="ShopPage">
+<var>${Row_Index}</var>
+<arg>${Item}</arg>
+<kw name="Get Column Index of Cart Table" library="ShopPage">
+<var>${Col_Index}</var>
+<arg>Item</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Cart_Table}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:17.002" endtime="20221114 19:37:17.061"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Col_Count}</var>
+<arg>${Cart_Table}//th</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.076" level="INFO">${Col_Count} = 5</msg>
+<status status="PASS" starttime="20221114 19:37:17.061" endtime="20221114 19:37:17.076"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Col_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.117" level="INFO">${UI_Col_Name} = Item</msg>
+<status status="PASS" starttime="20221114 19:37:17.076" endtime="20221114 19:37:17.117"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:17.117" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:17.117" endtime="20221114 19:37:17.117"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:17.076" endtime="20221114 19:37:17.117"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:17.076" endtime="20221114 19:37:17.117"/>
+</for>
+<msg timestamp="20221114 19:37:17.117" level="INFO">${Col_Index} = 1</msg>
+<status status="PASS" starttime="20221114 19:37:16.999" endtime="20221114 19:37:17.117"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Row_Count}</var>
+<arg>${Cart_Table}//tbody//tr</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.136" level="INFO">${Row_Count} = 3</msg>
+<status status="PASS" starttime="20221114 19:37:17.117" endtime="20221114 19:37:17.136"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Row_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Row_Name}</var>
+<arg>${Cart_Table}//tbody//tr\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.175" level="INFO">${UI_Row_Name} = Stuffed Frog $10.99 $21.98</msg>
+<status status="PASS" starttime="20221114 19:37:17.136" endtime="20221114 19:37:17.175"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${Row_Name}' in '${UI_Row_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:17.176" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:17.175" endtime="20221114 19:37:17.176"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:17.136" endtime="20221114 19:37:17.177"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:17.136" endtime="20221114 19:37:17.177"/>
+</for>
+<msg timestamp="20221114 19:37:17.177" level="INFO">${Row_Index} = 1</msg>
+<status status="PASS" starttime="20221114 19:37:16.997" endtime="20221114 19:37:17.177"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Locator}</var>
+<arg>${Cart_Table}//tbody//tr\[${Row_Index}]//td\[${Col_Index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221114 19:37:17.177" level="INFO">${Locator} = //table[@class="table table-striped cart-items"]//tbody//tr[1]//td[2]</msg>
+<status status="PASS" starttime="20221114 19:37:17.177" endtime="20221114 19:37:17.177"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Price}</var>
+<arg>${Locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.220" level="INFO">${UI_Price} = $10.99</msg>
+<status status="PASS" starttime="20221114 19:37:17.177" endtime="20221114 19:37:17.220"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>should be equal</arg>
+<arg>${Expected_Price}</arg>
+<arg>${UI_Price}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${Expected_Price}</arg>
+<arg>${UI_Price}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221114 19:37:17.223" endtime="20221114 19:37:17.223"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:17.223" endtime="20221114 19:37:17.223"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:16.823" endtime="20221114 19:37:17.223"/>
+</kw>
+<kw name="Verify Item Price in Car Table" library="ShopPage">
+<arg>${Items_Bunny}</arg>
+<arg>${Bunny_Price}</arg>
+<kw name="Get Column Index of Cart Table" library="ShopPage">
+<var>${Col_Index}</var>
+<arg>Price</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Cart_Table}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:17.223" endtime="20221114 19:37:17.260"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Col_Count}</var>
+<arg>${Cart_Table}//th</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.278" level="INFO">${Col_Count} = 5</msg>
+<status status="PASS" starttime="20221114 19:37:17.260" endtime="20221114 19:37:17.278"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Col_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.364" level="INFO">${UI_Col_Name} = Item</msg>
+<status status="PASS" starttime="20221114 19:37:17.278" endtime="20221114 19:37:17.364"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:17.364" endtime="20221114 19:37:17.364"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:17.278" endtime="20221114 19:37:17.364"/>
+</iter>
+<iter>
+<var name="${Index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.408" level="INFO">${UI_Col_Name} = Price</msg>
+<status status="PASS" starttime="20221114 19:37:17.364" endtime="20221114 19:37:17.408"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:17.409" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:17.408" endtime="20221114 19:37:17.411"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:17.364" endtime="20221114 19:37:17.411"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:17.278" endtime="20221114 19:37:17.411"/>
+</for>
+<msg timestamp="20221114 19:37:17.412" level="INFO">${Col_Index} = 2</msg>
+<status status="PASS" starttime="20221114 19:37:17.223" endtime="20221114 19:37:17.412"/>
+</kw>
+<kw name="Get Row Index of Cart Table" library="ShopPage">
+<var>${Row_Index}</var>
+<arg>${Item}</arg>
+<kw name="Get Column Index of Cart Table" library="ShopPage">
+<var>${Col_Index}</var>
+<arg>Item</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Cart_Table}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:17.413" endtime="20221114 19:37:17.449"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Col_Count}</var>
+<arg>${Cart_Table}//th</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.483" level="INFO">${Col_Count} = 5</msg>
+<status status="PASS" starttime="20221114 19:37:17.449" endtime="20221114 19:37:17.483"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Col_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.540" level="INFO">${UI_Col_Name} = Item</msg>
+<status status="PASS" starttime="20221114 19:37:17.483" endtime="20221114 19:37:17.540"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:17.543" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:17.540" endtime="20221114 19:37:17.543"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:17.483" endtime="20221114 19:37:17.543"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:17.483" endtime="20221114 19:37:17.543"/>
+</for>
+<msg timestamp="20221114 19:37:17.543" level="INFO">${Col_Index} = 1</msg>
+<status status="PASS" starttime="20221114 19:37:17.413" endtime="20221114 19:37:17.543"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Row_Count}</var>
+<arg>${Cart_Table}//tbody//tr</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.570" level="INFO">${Row_Count} = 3</msg>
+<status status="PASS" starttime="20221114 19:37:17.543" endtime="20221114 19:37:17.570"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Row_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Row_Name}</var>
+<arg>${Cart_Table}//tbody//tr\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.604" level="INFO">${UI_Row_Name} = Stuffed Frog $10.99 $21.98</msg>
+<status status="PASS" starttime="20221114 19:37:17.570" endtime="20221114 19:37:17.604"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${Row_Name}' in '${UI_Row_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:17.604" endtime="20221114 19:37:17.605"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:17.570" endtime="20221114 19:37:17.605"/>
+</iter>
+<iter>
+<var name="${Index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Row_Name}</var>
+<arg>${Cart_Table}//tbody//tr\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.649" level="INFO">${UI_Row_Name} = Fluffy Bunny $9.99 $49.95</msg>
+<status status="PASS" starttime="20221114 19:37:17.605" endtime="20221114 19:37:17.649"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${Row_Name}' in '${UI_Row_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:17.649" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:17.649" endtime="20221114 19:37:17.649"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:17.605" endtime="20221114 19:37:17.649"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:17.570" endtime="20221114 19:37:17.649"/>
+</for>
+<msg timestamp="20221114 19:37:17.649" level="INFO">${Row_Index} = 2</msg>
+<status status="PASS" starttime="20221114 19:37:17.412" endtime="20221114 19:37:17.649"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Locator}</var>
+<arg>${Cart_Table}//tbody//tr\[${Row_Index}]//td\[${Col_Index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221114 19:37:17.649" level="INFO">${Locator} = //table[@class="table table-striped cart-items"]//tbody//tr[2]//td[2]</msg>
+<status status="PASS" starttime="20221114 19:37:17.649" endtime="20221114 19:37:17.649"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Price}</var>
+<arg>${Locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.766" level="INFO">${UI_Price} = $9.99</msg>
+<status status="PASS" starttime="20221114 19:37:17.649" endtime="20221114 19:37:17.766"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>should be equal</arg>
+<arg>${Expected_Price}</arg>
+<arg>${UI_Price}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${Expected_Price}</arg>
+<arg>${UI_Price}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221114 19:37:17.766" endtime="20221114 19:37:17.766"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:17.766" endtime="20221114 19:37:17.766"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:17.223" endtime="20221114 19:37:17.766"/>
+</kw>
+<kw name="Verify Item Price in Car Table" library="ShopPage">
+<arg>${Items_Bear}</arg>
+<arg>${Bear_Price}</arg>
+<kw name="Get Column Index of Cart Table" library="ShopPage">
+<var>${Col_Index}</var>
+<arg>Price</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Cart_Table}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:17.772" endtime="20221114 19:37:17.826"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Col_Count}</var>
+<arg>${Cart_Table}//th</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.844" level="INFO">${Col_Count} = 5</msg>
+<status status="PASS" starttime="20221114 19:37:17.827" endtime="20221114 19:37:17.844"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Col_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.883" level="INFO">${UI_Col_Name} = Item</msg>
+<status status="PASS" starttime="20221114 19:37:17.844" endtime="20221114 19:37:17.883"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:17.883" endtime="20221114 19:37:17.883"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:17.844" endtime="20221114 19:37:17.883"/>
+</iter>
+<iter>
+<var name="${Index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.921" level="INFO">${UI_Col_Name} = Price</msg>
+<status status="PASS" starttime="20221114 19:37:17.887" endtime="20221114 19:37:17.921"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:17.921" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:17.921" endtime="20221114 19:37:17.921"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:17.883" endtime="20221114 19:37:17.921"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:17.844" endtime="20221114 19:37:17.921"/>
+</for>
+<msg timestamp="20221114 19:37:17.925" level="INFO">${Col_Index} = 2</msg>
+<status status="PASS" starttime="20221114 19:37:17.771" endtime="20221114 19:37:17.925"/>
+</kw>
+<kw name="Get Row Index of Cart Table" library="ShopPage">
+<var>${Row_Index}</var>
+<arg>${Item}</arg>
+<kw name="Get Column Index of Cart Table" library="ShopPage">
+<var>${Col_Index}</var>
+<arg>Item</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Cart_Table}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221114 19:37:17.926" endtime="20221114 19:37:17.969"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Col_Count}</var>
+<arg>${Cart_Table}//th</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:17.984" level="INFO">${Col_Count} = 5</msg>
+<status status="PASS" starttime="20221114 19:37:17.969" endtime="20221114 19:37:17.984"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Col_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Col_Name}</var>
+<arg>${Cart_Table}//th\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:18.019" level="INFO">${UI_Col_Name} = Item</msg>
+<status status="PASS" starttime="20221114 19:37:17.984" endtime="20221114 19:37:18.019"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${UI_Col_Name.strip()}'=='${Column_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:18.019" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:18.019" endtime="20221114 19:37:18.019"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:17.984" endtime="20221114 19:37:18.019"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:17.984" endtime="20221114 19:37:18.019"/>
+</for>
+<msg timestamp="20221114 19:37:18.019" level="INFO">${Col_Index} = 1</msg>
+<status status="PASS" starttime="20221114 19:37:17.925" endtime="20221114 19:37:18.019"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Row_Count}</var>
+<arg>${Cart_Table}//tbody//tr</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221114 19:37:18.054" level="INFO">${Row_Count} = 3</msg>
+<status status="PASS" starttime="20221114 19:37:18.019" endtime="20221114 19:37:18.054"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${Index}</var>
+<value>1</value>
+<value>${Row_Count}+1</value>
+<iter>
+<var name="${Index}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Row_Name}</var>
+<arg>${Cart_Table}//tbody//tr\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:18.094" level="INFO">${UI_Row_Name} = Stuffed Frog $10.99 $21.98</msg>
+<status status="PASS" starttime="20221114 19:37:18.055" endtime="20221114 19:37:18.094"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${Row_Name}' in '${UI_Row_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:18.095" endtime="20221114 19:37:18.095"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:18.055" endtime="20221114 19:37:18.095"/>
+</iter>
+<iter>
+<var name="${Index}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Row_Name}</var>
+<arg>${Cart_Table}//tbody//tr\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:18.141" level="INFO">${UI_Row_Name} = Fluffy Bunny $9.99 $49.95</msg>
+<status status="PASS" starttime="20221114 19:37:18.096" endtime="20221114 19:37:18.141"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${Row_Name}' in '${UI_Row_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20221114 19:37:18.142" endtime="20221114 19:37:18.143"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:18.096" endtime="20221114 19:37:18.143"/>
+</iter>
+<iter>
+<var name="${Index}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Row_Name}</var>
+<arg>${Cart_Table}//tbody//tr\[${Index}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:18.182" level="INFO">${UI_Row_Name} = Valentine Bear $14.99 $44.97</msg>
+<status status="PASS" starttime="20221114 19:37:18.143" endtime="20221114 19:37:18.183"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${Row_Name}' in '${UI_Row_Name}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20221114 19:37:18.183" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20221114 19:37:18.183" endtime="20221114 19:37:18.183"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:18.143" endtime="20221114 19:37:18.183"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:18.055" endtime="20221114 19:37:18.183"/>
+</for>
+<msg timestamp="20221114 19:37:18.183" level="INFO">${Row_Index} = 3</msg>
+<status status="PASS" starttime="20221114 19:37:17.925" endtime="20221114 19:37:18.183"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Locator}</var>
+<arg>${Cart_Table}//tbody//tr\[${Row_Index}]//td\[${Col_Index}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221114 19:37:18.183" level="INFO">${Locator} = //table[@class="table table-striped cart-items"]//tbody//tr[3]//td[2]</msg>
+<status status="PASS" starttime="20221114 19:37:18.183" endtime="20221114 19:37:18.183"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Price}</var>
+<arg>${Locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:18.232" level="INFO">${UI_Price} = $14.99</msg>
+<status status="PASS" starttime="20221114 19:37:18.183" endtime="20221114 19:37:18.232"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>should be equal</arg>
+<arg>${Expected_Price}</arg>
+<arg>${UI_Price}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${Expected_Price}</arg>
+<arg>${UI_Price}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221114 19:37:18.232" endtime="20221114 19:37:18.232"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:18.232" endtime="20221114 19:37:18.232"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:17.766" endtime="20221114 19:37:18.232"/>
+</kw>
+<kw name="Verify Total Cart Table" library="ShopPage">
+<arg>${Subtotal_Frog}</arg>
+<arg>${Subtotal_Bunny}</arg>
+<arg>${Subtotal_Bear}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Expected_Total}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221114 19:37:18.232" level="INFO">${Expected_Total} = 0</msg>
+<status status="PASS" starttime="20221114 19:37:18.232" endtime="20221114 19:37:18.232"/>
+</kw>
+<for flavor="IN">
+<var>${SubTotal}</var>
+<value>@{SubTotal_List}</value>
+<iter>
+<var name="${SubTotal}">$21.98</var>
+<kw name="Remove String" library="String">
+<var>${SubTotal}</var>
+<arg>${SubTotal}</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20221114 19:37:18.232" level="INFO">${SubTotal} = 21.98</msg>
+<status status="PASS" starttime="20221114 19:37:18.232" endtime="20221114 19:37:18.232"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${SubTotal}</var>
+<arg>${SubTotal}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20221114 19:37:18.232" level="INFO">${SubTotal} = 21.98</msg>
+<status status="PASS" starttime="20221114 19:37:18.232" endtime="20221114 19:37:18.232"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${Expected_Total}</var>
+<arg>"%.2f" % (${Expected_Total}+${SubTotal})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221114 19:37:18.232" level="INFO">${Expected_Total} = 21.98</msg>
+<status status="PASS" starttime="20221114 19:37:18.232" endtime="20221114 19:37:18.232"/>
+</kw>
+<kw name="Strip String" library="String">
+<var>${Expected_Total}</var>
+<arg>${Expected_Total}</arg>
+<arg>mode=right</arg>
+<arg>characters=0</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<msg timestamp="20221114 19:37:18.232" level="INFO">${Expected_Total} = 21.98</msg>
+<status status="PASS" starttime="20221114 19:37:18.232" endtime="20221114 19:37:18.232"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:18.232" endtime="20221114 19:37:18.232"/>
+</iter>
+<iter>
+<var name="${SubTotal}">$49.95</var>
+<kw name="Remove String" library="String">
+<var>${SubTotal}</var>
+<arg>${SubTotal}</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20221114 19:37:18.232" level="INFO">${SubTotal} = 49.95</msg>
+<status status="PASS" starttime="20221114 19:37:18.232" endtime="20221114 19:37:18.232"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${SubTotal}</var>
+<arg>${SubTotal}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20221114 19:37:18.232" level="INFO">${SubTotal} = 49.95</msg>
+<status status="PASS" starttime="20221114 19:37:18.232" endtime="20221114 19:37:18.232"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${Expected_Total}</var>
+<arg>"%.2f" % (${Expected_Total}+${SubTotal})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221114 19:37:18.232" level="INFO">${Expected_Total} = 71.93</msg>
+<status status="PASS" starttime="20221114 19:37:18.232" endtime="20221114 19:37:18.232"/>
+</kw>
+<kw name="Strip String" library="String">
+<var>${Expected_Total}</var>
+<arg>${Expected_Total}</arg>
+<arg>mode=right</arg>
+<arg>characters=0</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<msg timestamp="20221114 19:37:18.241" level="INFO">${Expected_Total} = 71.93</msg>
+<status status="PASS" starttime="20221114 19:37:18.240" endtime="20221114 19:37:18.241"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:18.232" endtime="20221114 19:37:18.241"/>
+</iter>
+<iter>
+<var name="${SubTotal}">$44.97</var>
+<kw name="Remove String" library="String">
+<var>${SubTotal}</var>
+<arg>${SubTotal}</arg>
+<arg>$</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20221114 19:37:18.243" level="INFO">${SubTotal} = 44.97</msg>
+<status status="PASS" starttime="20221114 19:37:18.242" endtime="20221114 19:37:18.243"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${SubTotal}</var>
+<arg>${SubTotal}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20221114 19:37:18.243" level="INFO">${SubTotal} = 44.97</msg>
+<status status="PASS" starttime="20221114 19:37:18.243" endtime="20221114 19:37:18.244"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${Expected_Total}</var>
+<arg>"%.2f" % (${Expected_Total}+${SubTotal})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221114 19:37:18.245" level="INFO">${Expected_Total} = 116.90</msg>
+<status status="PASS" starttime="20221114 19:37:18.244" endtime="20221114 19:37:18.245"/>
+</kw>
+<kw name="Strip String" library="String">
+<var>${Expected_Total}</var>
+<arg>${Expected_Total}</arg>
+<arg>mode=right</arg>
+<arg>characters=0</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<msg timestamp="20221114 19:37:18.245" level="INFO">${Expected_Total} = 116.9</msg>
+<status status="PASS" starttime="20221114 19:37:18.245" endtime="20221114 19:37:18.245"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:18.241" endtime="20221114 19:37:18.245"/>
+</iter>
+<status status="PASS" starttime="20221114 19:37:18.232" endtime="20221114 19:37:18.245"/>
+</for>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${UI_Total}</var>
+<arg>${Cart_Table}//tfoot//strong[@class="total ng-binding"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221114 19:37:18.287" level="INFO">${UI_Total} = Total: 116.9</msg>
+<status status="PASS" starttime="20221114 19:37:18.245" endtime="20221114 19:37:18.287"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>should be equal</arg>
+<arg>Total: ${Expected_Total}</arg>
+<arg>${UI_Total}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>Total: ${Expected_Total}</arg>
+<arg>${UI_Total}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221114 19:37:18.287" endtime="20221114 19:37:18.287"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:18.287" endtime="20221114 19:37:18.287"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:18.232" endtime="20221114 19:37:18.287"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>Cart.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20221114 19:37:18.488" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Cart.png"&gt;&lt;img src="Cart.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20221114 19:37:18.287" endtime="20221114 19:37:18.488"/>
+</kw>
+<status status="PASS" starttime="20221114 19:37:05.273" endtime="20221114 19:37:18.489"/>
+</test>
+<status status="PASS" starttime="20221114 19:37:05.174" endtime="20221114 19:37:18.489"/>
+</suite>
+<status status="PASS" starttime="20221114 19:36:41.132" endtime="20221114 19:37:18.489"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="TestCases">TestCases</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="TC1">TestCases.TC1</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s2" name="TC2">TestCases.TC2</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s3" name="TC3">TestCases.TC3</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
